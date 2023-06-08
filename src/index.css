@@ -203,9 +203,10 @@ code {
   position: fixed;
 } .imgCards img {
   border-radius: 25px;
+  box-shadow: 0 0 10px #ff0;
+  /* max-height: none; */
   height: 600px;
-  width: 600px;
-  box-shadow: 0 0 10px yellow;
+  /* width: 600px;*/
 }
 
 .attr {
@@ -253,6 +254,9 @@ code {
   } .attr p {
     margin-right: 25px;
     line-height: 2.5rem;
+  } .imgCards img {
+    height: 100%;
+    width: 600px
   }
 }
 
