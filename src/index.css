@@ -5,13 +5,27 @@ body {
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  background: rgb(9,9,121);
-background: linear-gradient(90deg, rgba(9,9,121,1) 0%, rgba(173,166,160,1) 100%);
 }
 
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
+}
+
+.backgroundBody {
+  position: fixed;
+  height: 100vh;
+  width: 100%;
+  background: url('./yugi.jpg') ;
+  filter: blur(100px) contrast(2) hue-rotate(360deg);
+  animation: back 20s infinite;
+  z-index: -1;
+} @keyframes back {
+  0%,100% {
+    filter: blur(0) contrast(1) hue-rotate(0deg);
+  } 50% {
+    filter: blur(100px)  contrast(2) hue-rotate(360deg);
+  }
 }
 
 .spinner {
@@ -23,7 +37,7 @@ code {
   height: 100px;
   width: 100px;
   border-radius: 50%;
-  z-index: 2;
+  z-index: 26;
 }
  /* .spinner::before {
   content: '';
@@ -61,7 +75,7 @@ code {
   height: 100vh;
   width: 100%;
   opacity: 0.9;
-  z-index: 1;
+  z-index: 25;
 }
 
 .all {
@@ -81,9 +95,7 @@ code {
   background-color: #111;
   color: white;
   transition: 0.3s linear;
-} .cards:hover {
-  background-color: white;
-  color: black
+  box-shadow: 0 0 100px black;
 }
 
 .cards img {
@@ -135,36 +147,24 @@ code {
 
 .spell {
   background-color: green;
-  box-shadow: 0 0 20px green;
+  box-shadow: 0 0 100px green !important;
   color: white;
   transition: 0.3s;
-} .spell:hover {
-  background-color: white;
-  color: green
 }
 .effect {
   background-color: coral;
-  box-shadow: 0 0 20px coral;
+  box-shadow: 0 0 100px coral !important;
   color: white;
-} .effect:hover{
-  background-color: white;
-  color: coral ;
 }
 .trap {
   background-color: purple;
-  box-shadow: 0 0 20px purple;
+  box-shadow: 0 0 100px purple !important;
   color: gold;
-} .trap:hover{
-  background-color: gold;
-  color: purple
 }
 .common {
   background-color: lightcoral;
-  box-shadow: 0 0 20px lightcoral;
+  box-shadow: 0 0 100px lightcoral !important;
   color: gold;
-} .common:hover {
-  background-color: gold;
-  color: lightcoral
 }
 
 
@@ -173,7 +173,7 @@ code {
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%) scale(1);
-  animation: lol 0.5s linear;
+  animation: lol 0.4s ease-in-out;
 } @keyframes lol {
   0% {
     opacity: 0;
@@ -189,8 +189,8 @@ code {
   border-radius: 25px;
   overflow-y: scroll;
   overflow-x: hidden;
-  box-shadow: 0 0 10px yellow;
-  background-color: #111;
+  background-color: #222;
+  box-shadow: 0 0 10px black;
 } .desc::-webkit-scrollbar {
   width: 10px;
   background-color: transparent;
@@ -203,7 +203,7 @@ code {
   position: fixed;
 } .imgCards img {
   border-radius: 25px;
-  box-shadow: 0 0 10px #ff0;
+  box-shadow: 5px 0px 5px rgb(0, 0, 0, 0.3);
   /* max-height: none; */
   height: 600px;
   /* width: 600px;*/
@@ -218,6 +218,7 @@ code {
   text-align: start;
   padding: 10px 20px;
   color: white ;
+  text-shadow: 0 0 10px black;
 } .attr span {
   word-spacing: 10px;
   color: gold;
@@ -238,6 +239,126 @@ code {
   } 100% {
     opacity: 1;
   }
+}
+
+.xmark {
+  position: fixed;
+  top: 20px;
+  left: 50%;
+  transform: translate(-50%);
+  z-index: 20;
+  cursor: pointer;
+  font-size: 30px;
+  background-color: white;
+  color: red;
+  padding: 0 10px;
+  border-radius: 10px;
+  transition: 0.3s linear;
+  animation: lol 0.5s linear;
+} .xmark:hover {
+  color: white ;
+  background-color: red;
+  transform: translate(-50%) scale(1.2);
+}
+
+.searched {
+  display: flex;
+  gap: 50px;
+  flex-wrap: wrap;
+  justify-content: center;
+  height: 500px;
+  flex-direction: column;
+  overflow-x: auto;
+  overflow-y: hidden;
+}
+
+.searchIcon {
+  position: sticky;
+  top: 0;
+  display: grid;
+  align-items: center;
+  width: 150px;
+  padding: 10px;
+  height: 20px;
+  cursor: pointer;
+  color: white;
+  transition: 0.3s linear;
+  font-size: 20px;
+  box-shadow: 0 0 10px black;
+} .searchIcon:hover {
+  color: lightgreen;
+} .searchIcon::after {
+  content: 'Search . . .';
+  position: absolute;
+  left: 60px;
+} .searchIcon::before {
+  content: '';
+  position: absolute;
+  top: 0 ;
+  left: 0;
+  background: url(./yugi.jpg);
+  width: 100%;
+  height: 40px;
+  z-index: -1;
+  filter: blur(5px) contrast(10) opacity(0.7);
+}
+
+.header {
+  position: sticky;
+  top: 0;
+  left: 0;
+  background-color: #999;
+  height: 40px;
+  text-align: center;
+  box-shadow: 0 0 30px black;
+  font-size: 25px;
+  font-weight: bold;
+  color: white ;
+  text-shadow: 0 0 10px black;
+} .header::before {
+  content: '';
+  position: fixed;
+  top: 0 ;
+  left: 0;
+  background: url(./yugi.jpg);
+  width: 100%;
+  height: 40px;
+  z-index: -1;
+  filter: blur(5px) contrast(10) opacity(0.7);
+}
+
+.compSearch {
+  position: fixed;
+  background-color: #222;
+  animation: poio 0.4s;
+  transform: translate(0);
+  top: 0;
+  height: 100vh;
+  width: 100%;
+  overflow-y: auto;
+} @keyframes poio {
+  0% {
+    transform: translateX(-100%);
+    opacity: 0;
+  } 50% {
+    opacity: 0.7;
+  } 100% {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
+
+.compSearch::-webkit-scrollbar {
+  overflow: overlay ;
+} 
+.compSearch::-webkit-scrollbar-thumb {
+  background-color: #222;
+}
+
+.xmarkSearch {
+  position: fixed;
+  right: 0;
+  z-index: 20;
 }
 
 
@@ -264,5 +385,12 @@ code {
   .imgCards img {
     height: 100%;
     width: 100%;
+  }
+}
+
+@media (max-width: 600px) {
+  .header {
+    text-align: end;
+    padding: 0px 20px;
   }
 }

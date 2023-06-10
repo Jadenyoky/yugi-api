@@ -1,5 +1,8 @@
 import React, { useEffect, useState } from "react";
 import Cards from "./cards";
+import {FontAwesomeIcon} from '@fortawesome/react-fontawesome'
+import { faSearch, faXmark } from "@fortawesome/free-solid-svg-icons";
+import Search from './search'
 
 const App = () => {
   // const [url, seturl] = useState('https://db.ygoprodeck.com/api/v7/cardinfo.php');
@@ -35,9 +38,13 @@ const App = () => {
     // console.log('up')
     finishing();
 
-    console.log(apiOk.data)
-    console.log(apiOk.data[9].frameType);
+    console.log(cards)
+
   };
+
+  useEffect(() => {
+    apiLink();
+  }, []);
 
   const apiLink2 = async () => {
     loading();
@@ -52,14 +59,38 @@ const App = () => {
     finishing();
   };
 
-  useEffect(() => {
-    apiLink();
-  }, []);
-
-  console.log(num);
+  const [searchShow, setsearchShow] = useState(false)
 
   return (
-    <div>
+    <>
+        <div className="backgroundBody"></div>
+        <div className="header">
+          Yugi Api !
+        </div>
+        <div className="searchIcon"
+          onClick={()=> {
+            setsearchShow(!searchShow)
+            document.body.style.overflowY = 'hidden'
+          }} >
+          <FontAwesomeIcon  icon={faSearch}/>
+        </div>
+
+      {
+        searchShow === true ? 
+
+          (
+            <div style={{
+              zIndex: '30'
+            }}>
+              <FontAwesomeIcon className="xmarkSearch" icon={faXmark} onClick={()=> {
+                setsearchShow(!searchShow)
+                document.body.style.overflowY = 'scroll'
+              }} />
+              <Search />
+            </div>
+          ) : ''
+      }
+
       <div className="all">
         {cards.map(
           (e, k) =>
@@ -81,7 +112,7 @@ const App = () => {
         <button onClick={apiLink}>More ..</button>
         <button onClick={apiLink2}>Less ..</button>
       </div>
-    </div>
+    </>
   );
 };
 

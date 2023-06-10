@@ -1,10 +1,13 @@
 import React, { useState } from 'react';
 
-const Data = ({ name, image, desc, atk, def,rate ,type}) => {
+const Data = ({ name, image, desc, atk, def,type}) => {
+
+  const sty = `desc ${type}`
+
   return (
     <div>
       <div className='allDesc'>
-        <div className='desc'>
+        <div className={sty}>
           <div className='imgCards'>
             <img src={image} alt="" />
           </div>
@@ -19,16 +22,16 @@ const Data = ({ name, image, desc, atk, def,rate ,type}) => {
             <span>Description : </span> {desc}
             </p>
             {
-              atk ? 
+              atk >= 0 ? 
               <p>
-              <span>Attack : </span> {atk}
+              <span>Attack : </span> {atk} <span> ATK</span>
               </p> 
               : ""
             }
             {
-              def ?
+              def >= 0 ?
               <p>
-              <span>Defend : </span> {def}
+              <span>Defend : </span> {def} <span> DEF</span>
               </p>
               : ""
             }        
