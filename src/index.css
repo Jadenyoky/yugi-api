@@ -12,17 +12,141 @@ code {
     monospace;
 }
 
+
+/* Type Cards */
+.spell {
+  /* background: #1D9E74; */
+  /* background: linear-gradient(0deg, rgba(29,158,116,1) 90%, rgba(255,255,255,1) 100%); */
+  color: white;
+  background: linear-gradient(90deg, rgba(29,158,116,1) 80%, rgba(255,255,255,1) 100%) ;
+  transition: 0.3s;
+  animation: back 0.5s linear;
+  box-shadow: 0 0 50px rgba(29,158,116,1) !important;
+}
+
+.trap {
+  background: linear-gradient(90deg, rgba(188,90,132,1) 80%, rgba(255,255,255,1) 100%);
+  box-shadow: 0 0 50px rgba(188,90,132,1) !important;
+  color: gold;
+  animation: back 0.5s linear;
+}
+
+.normal {
+  background: linear-gradient(90deg, rgba(253,230,138,1) 80%, rgba(255,255,255,1) 100%);
+  box-shadow: 0 0 50px rgba(253,230,138,1) !important;
+  color: #1D9E74 !important ;
+  animation: back 0.5s linear;
+  text-shadow: 0 0 10px white ;
+}
+
+.effect {
+  background: linear-gradient(90deg, rgba(255,139,83,1) 80%, rgba(255,255,255,1) 100%);
+  box-shadow: 0 0 50px rgba(255,139,83,1) !important;
+  color: white;
+  animation: back 0.5s linear;
+}
+
+.ritual {
+  background: linear-gradient(90deg, rgba(157,181,204,1) 80%, rgba(255,255,255,1) 100%);
+  box-shadow: 0 0 50px rgba(157,181,204,1) !important;
+  animation: back 0.5s linear;
+  text-shadow: 0 0 10px #444 ;
+}
+
+.fusion {
+  background: linear-gradient(90deg, rgba(160,134,183,1) 80%, rgba(255,255,255,1) 100%);
+  box-shadow: 0 0 50px rgba(160, 134,183,1) !important;
+  animation: back 0.5s linear;
+}
+
+.synchro {
+  background: linear-gradient(90deg, rgba(204,204,204,1) 80%, rgba(255,255,255,1) 100%);
+  box-shadow: 0 0 50px rgba(204,204,204,1) !important;
+  animation: back 0.5s linear;
+  color: #666 !important;
+}
+
+.xyz {
+  background: linear-gradient(90deg, rgba(0,0,0,1) 80%, rgba(255,255,255,1) 100%);
+  box-shadow: 0 0 50px rgba(0,0,0,1) !important;
+  animation: back 0.5s linear;
+}
+
+.token {
+  background: linear-gradient(90deg, rgba(192,192,192,1) 80%, rgba(255,255,255,1) 100%);
+  box-shadow: 0 0 50px rgba(192,192,192,1) !important;
+  animation: back 0.5s linear;
+}
+
+.normal_pendulum {
+  background: radial-gradient(circle, rgba(29,158,116,1) 70%, rgba(253,230,138,1) 90%);
+  box-shadow: 0 0 50px rgba(29,158,116,1) !important;
+  animation: back 0.5s linear;
+} .normal_pendulum img {
+  max-width: 600px;
+}
+
+.effect_pendulum {
+  background: radial-gradient(circle, rgba(29,158,116,1) 70%, rgba(255,139,83,1) 90%);
+  box-shadow: 0 0 50px rgba(29,158,116,1) !important;
+  animation: back 0.5s linear;
+} .effect_pendulum img {
+  max-width: 600px;
+}
+
+.ritual_pendulum {
+  background: radial-gradient(circle, rgba(29,158,116,1) 70%, rgba(157,181,204,1) 90%);
+  box-shadow: 0 0 50px rgba(29,158,116,1) !important;
+  animation: back 0.5s linear;
+} .ritual_pendulum img {
+  max-width: 600px;
+}
+
+.fusion_pendulum {
+  background: radial-gradient(circle, rgba(29,158,116,1) 70%, rgba(160,134,183,1) 90%);
+  box-shadow: 0 0 50px rgba(29,158,116,1) !important;
+  animation: back 0.5s linear;
+} .fusion_pendulum img {
+  max-width: 600px;
+}
+
+.synchro_pendulum {
+  background: radial-gradient(circle, rgba(29,158,116,1) 70%, rgba(192,192,192,1) 90%);
+  box-shadow: 0 0 50px rgba(29,158,116,1) !important;
+  animation: back 0.5s linear;
+} .synchro_pendulum img {
+  max-width: 600px;
+}
+
+.xyz_pendulum {
+  background: radial-gradient(circle, rgba(29,158,116,1) 70%, rgba(0,0,0,1) 90%);
+  box-shadow: 0 0 50px rgba(29,158,116,1) !important;
+  animation: back 0.5s linear;
+} .xyz_pendulum img {
+  max-width: 600px;
+}
+
+.link {
+  background: linear-gradient(90deg, rgba(0,0,139,1) 80%, rgba(255,255,255,1) 100%);
+  box-shadow: 0 0 50px rgba(0,0,139,1) !important;
+  animation: back 0.5s linear;
+} .link img {
+  max-width: 600px;
+}
+
+/* --------- */
+
 .backgroundBody {
   position: fixed;
   height: 100vh;
   width: 100%;
-  background: url('./yugi.jpg') ;
+  background: url('./yugi.jpg') 50% 50%;
   filter: blur(100px) contrast(2) hue-rotate(360deg);
-  animation: back 20s infinite;
+  animation: back 30s infinite;
   z-index: -1;
 } @keyframes back {
   0%,100% {
-    filter: blur(0) contrast(1) hue-rotate(0deg);
+    filter: blur(0) contrast(1) hue-rotate(0);
   } 50% {
     filter: blur(100px)  contrast(2) hue-rotate(360deg);
   }
@@ -92,10 +216,11 @@ code {
   text-align: center;
   border-radius: 25px;
   font-size: 20px;
-  background-color: #111;
+  /* background-color: #111; */
+  background-color: teal;
   color: white;
   transition: 0.3s linear;
-  box-shadow: 0 0 100px black;
+  box-shadow: 0 0 50px teal;
 }
 
 .cards img {
@@ -137,35 +262,14 @@ code {
   font-size: 20px;
   border-radius: 25px;
   border: 0;
-  background-color: black;
+  background-color: teal;
   color: white ;
   transition: 0.3s linear;
 } .open:hover {
-  background-color: white;
-  color: black
+  background: white;
+  color: red ;
 }
 
-.spell {
-  background-color: green;
-  box-shadow: 0 0 100px green !important;
-  color: white;
-  transition: 0.3s;
-}
-.effect {
-  background-color: coral;
-  box-shadow: 0 0 100px coral !important;
-  color: white;
-}
-.trap {
-  background-color: purple;
-  box-shadow: 0 0 100px purple !important;
-  color: gold;
-}
-.common {
-  background-color: lightcoral;
-  box-shadow: 0 0 100px lightcoral !important;
-  color: gold;
-}
 
 
 .allDesc {
@@ -189,9 +293,28 @@ code {
   border-radius: 25px;
   overflow-y: scroll;
   overflow-x: hidden;
-  background-color: #222;
-  box-shadow: 0 0 10px black;
-} .desc::-webkit-scrollbar {
+  box-shadow: 0 0 50px teal;
+  background: transparent;
+} .desc::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  /* bottom: 0; */
+  height: 100%;
+  width: 100%;
+  background: url(yugi.jpg) 50% 50% no-repeat;
+  z-index: -1;
+  border-radius: 25px;
+  animation: back2 30s infinite;
+} @keyframes back2 {
+  0% , 100% {
+    filter: blur(50px) hue-rotate(0) opacity(0.4);
+  } 50% {
+    filter: blur(50px) hue-rotate(360deg) opacity(1);
+  }
+}
+
+.desc::-webkit-scrollbar {
   width: 10px;
   background-color: transparent;
 } .desc::-webkit-scrollbar-thumb {
@@ -261,16 +384,6 @@ code {
   transform: translate(-50%) scale(1.2);
 }
 
-.searched {
-  display: flex;
-  gap: 50px;
-  flex-wrap: wrap;
-  justify-content: center;
-  height: 500px;
-  flex-direction: column;
-  overflow-x: auto;
-  overflow-y: hidden;
-}
 
 .searchIcon {
   position: sticky;
@@ -329,13 +442,12 @@ code {
 
 .compSearch {
   position: fixed;
-  background-color: #222;
   animation: poio 0.4s;
   transform: translate(0);
   top: 0;
   height: 100vh;
   width: 100%;
-  overflow-y: auto;
+  overflow: hidden;
 } @keyframes poio {
   0% {
     transform: translateX(-100%);
@@ -346,21 +458,131 @@ code {
     transform: translateX(0);
     opacity: 1;
   }
+} .compSearch::before {
+  content: '';
+  position: absolute;
+  background: linear-gradient(95deg, rgba(253,230,138,1) 14%, rgba(255,139,83,1) 25%, rgba(188,90,132,1) 36%, rgba(160,134,183,1) 47%, rgba(29,158,116,1) 58%, rgba(157,181,204,1) 80%, rgba(50,50,153,1) 92%, rgba(0,0,0,1) 100%);
+  top: 0 ;
+  height: 100vh;
+  width: 100%;
+  z-index: -1;
+} @keyframes ppppp {
+  0%,100% {
+    filter: hue-rotate(0deg)
+  } 50% {
+    filter: hue-rotate(360deg) ;
+  }
 }
 
-.compSearch::-webkit-scrollbar {
-  overflow: overlay ;
-} 
-.compSearch::-webkit-scrollbar-thumb {
-  background-color: #222;
+.searchHeader {
+  text-align: center;
+  background-color: transparent;
+  
+} .searchHeader input {
+  padding: 10px;
+  border-radius: 25px;
+  outline: none;
+  border: 2px solid transparent;
+  background-color: transparent;
+  font-size: 20px;
+  color: white ;
+  border: 30px solid transparent;
+  border-bottom: 1px solid whitesmoke;
+} .searchHeader input::placeholder {
+  color: white ;
+}
+  /* .searchHeader::before {
+  content: '';
+  position: absolute;
+  height: 50px;
+  background-color: #1D9E74;
+  width: 0;
+  transition: 0.5s linear;
+  z-index: -1;
+  border-radius: 10px;
+} .searchHeader:hover::before {
+  width: 270px;
+} */
+
+.searchDesc {
+  text-align: center;
+  padding: 5px;
+  border: 1px solid transparent ;
+  border-bottom: 1px solid white;
+  color: white;
+  font-weight: bold;
 }
 
 .xmarkSearch {
   position: fixed;
-  right: 0;
-  z-index: 20;
+  top: 0px;
+  right: 0px;
+  background-color: red;
+  padding: 5px 10px;
+  z-index: 1;
+  border-radius: 25px 0px 0px 25px ;
+  font-size: 30px;
+  color: white ;
+  border: 1px solid transparent ;
+  transition: 0.3s linear;
+  cursor: pointer;
+} .xmarkSearch:hover {
+  background-color: white;
+  border: 1px solid red;
+  color: red ;
 }
 
+
+.searching {
+  display: flex;
+  padding: 10px 15px;
+  /* gap: 50px; */
+  flex-wrap: wrap;
+  /* justify-content: center; */
+  height: 60%;
+  flex-direction: column;
+  overflow-x: scroll;
+  overflow-y: hidden;
+  border-bottom: 1px solid white ;
+} .searching .cards {
+  width: 200px;
+  margin: 5px 10px;
+  text-align: center;
+  border-radius: 25px;
+  font-size: 20px;
+  /* background-color: #111; */
+  background-color: teal;
+  color: white;
+  transition: 0.3s linear;
+  box-shadow: 0 0 50px teal;
+} .searching::-webkit-scrollbar {
+  background-color: transparent;
+} .searching::-webkit-scrollbar-thumb {
+  background-color: #1D9E74;
+  margin-top: 0;
+}
+
+.btn-load {
+  position: absolute;
+  bottom: 10px;
+  /* margin: 10px; */
+  left: 50%;
+  transform: translate(-50%);
+  z-index: -1;
+} .btn-load button {
+  padding: 15px 30px ;
+  border-radius: 50px;
+  font-size: 17px;
+  font-weight: bold;
+  border: 1px solid white;
+  background-color: red;
+  color: white;
+  transition: 0.4s;
+} .btn-load button:hover {
+  background-color: white ;
+  color: red ;
+  border: 1px solid red ;
+}
 
 @media (max-width: 1100px) {
   .desc {

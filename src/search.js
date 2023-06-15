@@ -12,15 +12,19 @@ const Search = () => {
   function loading() {
     document.body.appendChild(div);
     div.classList.add("spinner");
-    
+    // document.body.appendChild(div2);
+    // div2.classList.add('highlight')
   }
 
   function finishing() {
     div.remove();
+    // div2.remove();
   }
 
   const apiFetch = async () => {
+    
     loading()
+    
     const apiF = await fetch(url)
     const apiJ = await apiF.json()
     console.log(apiJ.data)
@@ -65,56 +69,64 @@ const Search = () => {
   return (
     <div className="compSearch">
 
-      <input type="search" id="searching" onChange={searchIt} placeholder="Search Name Card ..." />
+      <div className='searchHeader'>
+        <input type="search" id="searching" onChange={searchIt} placeholder="Search Name Card ..." />
+      </div>
       
-      {
-        searchLength > 0 ? 
-      
-          <div>
-            <p>Found ( {searchLength} ) - - Max Show ( {maxResult} )</p>
-            <p>This "{inputVal}" Founded .. </p>
-          </div>
-          : 
-          <div>
-            <p>This "{inputVal}" Not Founded .. </p>
-          </div>
-      }
-      
-      {
-        // searchLength > maxResult 
-        searchLength > maxResult ?
+      <div>
+        {
+          searchLength > 0 ? 
         
-        <div>
-          <button onClick={()=>{
-        
-            if(searchLength > maxResult){
-              setmaxResult(maxResult + 20)
-              if(searchLength - maxResult < 20){
-                setmaxResult(searchLength)
-              }
-            }
-            
-            }}>Load More</button>
-        </div>  : ''
-      }
-      
-      <div className="searched">
+            <div className='searchDesc'>
+              <p>Found ( {searchLength} ) - - Max Show ( {maxResult} )</p>
+              <p>This "{inputVal}" Founded .. </p>
+            </div>
+            : 
+            <div className='searchDesc'>
+              <p>This "{inputVal}" Not Founded .. </p>
+            </div>
+        }
+      </div>
+
+    
+
+      <div className="searching">
         {
           searchResult.map((e,k)=>
             k < maxResult && (
-                <Cards 
-                    key={k}
-                    name={e.name}
-                    image={e.card_images[0].image_url_cropped}
-                    desc={e.desc}
-                    atk={e.atk}
-                    def={e.def}
-                    type={e.frameType}
-                />
+              <Cards 
+                  key={k}
+                  name={e.name}
+                  image={e.card_images[0].image_url_cropped}
+                  desc={e.desc}
+                  atk={e.atk}
+                  def={e.def}
+                  type={e.frameType}
+                  level={e.level}
+              />
           ))
         }
       </div>
-      
+
+      <div>
+        {
+          // searchLength > maxResult 
+          searchLength > maxResult ?
+          
+          <div className='btn-load'>
+            <button onClick={()=>{
+          
+              if(searchLength > maxResult){
+                setmaxResult(maxResult + 20)
+                if(searchLength - maxResult < 20){
+                  setmaxResult(searchLength)
+                }
+              }
+              
+              }}>Load More</button>
+          </div>  : ''
+        }  
+      </div>
     </div>
   );
 }

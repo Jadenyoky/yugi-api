@@ -3,6 +3,8 @@ import Cards from "./cards";
 import {FontAwesomeIcon} from '@fortawesome/react-fontawesome'
 import { faSearch, faXmark } from "@fortawesome/free-solid-svg-icons";
 import Search from './search'
+import _ from 'lodash'
+
 
 const App = () => {
   // const [url, seturl] = useState('https://db.ygoprodeck.com/api/v7/cardinfo.php');
@@ -37,10 +39,9 @@ const App = () => {
     setnum(num + 20);
     // console.log('up')
     finishing();
-
     console.log(cards)
-
   };
+
 
   useEffect(() => {
     apiLink();
@@ -63,6 +64,19 @@ const App = () => {
 
   return (
     <>
+    {/* <Splide aria-label="My Favorite Images">
+      <SplideSlide>
+        <h1>
+          Hello World!
+        </h1>
+      </SplideSlide>
+      <SplideSlide>
+        <h1>
+          Hello World! 2
+        </h1>
+      </SplideSlide>
+    </Splide> */}
+
         <div className="backgroundBody"></div>
         <div className="header">
           Yugi Api !
@@ -92,7 +106,9 @@ const App = () => {
       }
 
       <div className="all">
-        {cards.map(
+        {
+        // _.shuffle(cards)
+        cards.map(
           (e, k) =>
             k < num && (
               <Cards
@@ -103,6 +119,7 @@ const App = () => {
                 atk={e.atk}
                 def={e.def}
                 type={e.frameType}
+                level={e.level}
               />
             )
         )}

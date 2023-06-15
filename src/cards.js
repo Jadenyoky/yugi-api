@@ -3,7 +3,7 @@ import Data from "./data.js";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faXmark } from "@fortawesome/free-solid-svg-icons";
 
-const Cards = ({ name, image, desc, atk, def, type }) => {
+const Cards = ({ name, image, desc, atk, def, type, level }) => {
   const [open, setopen] = useState(false);
 
   const styleCards = `cards ${type}`;
@@ -55,6 +55,7 @@ const Cards = ({ name, image, desc, atk, def, type }) => {
             atk={atk}
             def={def}
             type={type}
+            level={level}
           />
         </>
       ) : (
