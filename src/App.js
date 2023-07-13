@@ -3,7 +3,6 @@ import Cards from "./cards";
 import {FontAwesomeIcon} from '@fortawesome/react-fontawesome'
 import { faSearch, faXmark } from "@fortawesome/free-solid-svg-icons";
 import Search from './search'
-import _ from 'lodash'
 
 
 const App = () => {
